@@ -1,4 +1,4 @@
-]dtls2udp:
+dtls2udp:
   build: docker-dtls2udp
   ports:
     - 5685:5685/udp
