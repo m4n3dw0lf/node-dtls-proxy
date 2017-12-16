@@ -26,6 +26,7 @@ sudo apt-get install nodejs
 ## Package Installation
 
 ```
+$ git clone https://github.com/m4n3dw0lf/node-dtls-tunnel
 $ cd node-dtls-tunnel
 $ npm install
 $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt -subj '/CN=fiware-orion/O=fiware/C=BR'
