@@ -40,7 +40,7 @@ $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert
 
 - On a terminal
 ```
-$ node examples/server/dtls2udp.js
+$ node bin/dtls2udp.js <Udp2Dtls Server>
 ```
 
 - On another terminal
@@ -52,7 +52,7 @@ $ node examples/server/udp_server.js
 
 - On a terminal
 ```
-$ node examples/client/udp2dtls.js <Dtls2Udp Server>
+$ node bin/udp2dtls.js <Dtls2Udp Server>
 ```
 
 - On another terminal

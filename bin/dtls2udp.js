@@ -11,7 +11,7 @@ else {
 
 var dtls_endpointPort = 5687
 
-const index = require('../../')
+const index = require('../')
     , dtls = index.createDTLSServer("cert.crt","cert.key",5685,"udp4")
     , dtls_client = require('node-dtls')
     , dgram = require('dgram')
