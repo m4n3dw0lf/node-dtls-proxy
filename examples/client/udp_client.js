@@ -1,8 +1,9 @@
 var dgram = require('dgram');
-var message = new Buffer('m4n3dw0lf');
 
-var PORT = 5684;
-var HOST = 'localhost';
+var udp2dtls_port = 5684;
+var udp2dtls_host = 'localhost';
+
+var message = new Buffer('m4n3dw0lf');
 
 var client = dgram.createSocket('udp4');
 
@@ -13,7 +14,5 @@ client.on('message', function(msg, rinfo){
    client.close();
 });
 
-client.send(message, 0, message.length, PORT, HOST, function(err, bytes) {
-    if (err) throw err;
-    console.log('UDP message sent to ' + HOST +':'+ PORT);
-});
+
+client.send(message, 0, message.length, udp2dtls_port, udp2dtls_host);

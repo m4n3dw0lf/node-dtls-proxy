@@ -50,10 +50,31 @@ $ node examples/server/udp_server.js
 
 - On a terminal
 ```
-$ node examples/client/udp2dtls.js <REMOTE DTLS SERVER>
+$ node examples/client/udp2dtls.js <Dtls2Udp Server>
 ```
 
 - On another terminal
 ```
 $ node examples/client/udp_client.js
 ```
+
+PoC Walkthrough:
+
+Server = 10.0.0.1
+Client = 10.0.0.2
+
+Server commands:
+```
+node examples/server/dtls2udp.js 
+node examples/server/udp_server.js
+```
+
+Client commands:
+```
+node examples/client/udp2dtls.js 10.0.0.1
+node examples/client/udp_client.js
+```
+
+## To-do 
+
+ - Docker-compose PoC
