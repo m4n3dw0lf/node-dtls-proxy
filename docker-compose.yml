@@ -1,9 +1,12 @@
-dtls2udp:
+]dtls2udp:
   build: docker-dtls2udp
   ports:
     - 5685:5685/udp
     - 5686:5686/udp
   net: host
+  #For real scenarios input the UDP2DTLS Server IP Address
+  environment:
+    - DTLS_REMOTE=localhost
   volumes:
     - ./cert.crt:/node-dtls-tunnel/cert.crt
     - ./cert.key:/node-dtls-tunnel/cert.key

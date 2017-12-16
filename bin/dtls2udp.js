@@ -1,9 +1,9 @@
 require('dotenv').config()
 var dtls_endpoint = process.env.DTLS_REMOTE
-if (typeof(endpoint) != "undefined"){}
+if (typeof(dtls_endpoint) != "undefined"){}
 else {
-  endpoint = process.argv[2]
-  if (typeof(endpoint) == "undefined"){
+  dtls_endpoint = process.argv[2]
+  if (typeof(dtls_endpoint) == "undefined"){
     console.log("You need to specify the DTLS Server endpoint\nusage:\n  node dtls2udp.js <DTLS_SERVER>")
     process.exit()
   }
