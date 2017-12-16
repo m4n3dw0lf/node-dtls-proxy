@@ -1,0 +1,15 @@
+{
+	"name": "node-dtls-proxy",
+	"version": "0.0.1",
+	"description": "A node UDP-2-DTLS Proxy",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/m4n3dw0lf/node-dtls-proxy"
+	},
+	"author": "Angelo Moura <m4n3dw0lf@gmail.com>",
+	"license": "GPLv2",
+	"dependencies": {
+		"node-dtls": "git://github.com/Rantanen/node-dtls"
+	}
+}
