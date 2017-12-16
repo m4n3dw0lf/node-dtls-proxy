@@ -29,10 +29,12 @@ sudo apt-get install nodejs
 $ git clone https://github.com/m4n3dw0lf/node-dtls-tunnel
 $ cd node-dtls-tunnel
 $ npm install
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt -subj '/CN=node-dtls-tunnel/O=node-dtls-tunnel/C=BR'
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt -subj '/CN=node-dtls-tunnel/O=m4n3dw0lf/C=BR'
 ```
 
 ## PoC
+
+- Create 2 VMs, one for the Server and one for the Client and install the package.
 
 ### Server-side
 
@@ -58,23 +60,39 @@ $ node examples/client/udp2dtls.js <Dtls2Udp Server>
 $ node examples/client/udp_client.js
 ```
 
-PoC Walkthrough:
+## Docker-Compose PoC
 
-Server = 10.0.0.1
-Client = 10.0.0.2
+### run `docker-compose up`
 
-Server commands:
+> NOTE: remember to generate the certificate and key pair
+
+this will start the dtls2udp and udp2dtls proxies.
+
+for real scenarios, you will need to split the dtls2udp service in one server and the udp2dtls service to the other server.
+
+### Start the UDP Server sample
+
 ```
-node examples/server/dtls2udp.js 
-node examples/server/udp_server.js
+$ node examples/server/udp_server.js
 ```
 
-Client commands:
+### Request using the UDP Client sample
+
 ```
-node examples/client/udp2dtls.js 10.0.0.1
-node examples/client/udp_client.js
+$ node examples/client/udp_client.js
 ```
 
-## To-do 
+### Check the result on the docker-compose output
 
- - Docker-compose PoC
+```
+udp2dtls    | UDP Server listening on port: 5684
+udp2dtls    | DTLS Server listening on port: 5687
+dtls2udp    | DTLS Server listening on port: 5685
+dtls2udp    | UDP Server listening on port:  5686
+udp2dtls    | Got a DTLS message from: 127.0.0.1:57844 to UDP client: localhost:5685
+dtls2udp    | Got a DTLS Connection from: 127.0.0.1:44196
+udp2dtls    | Forwarding UDP message from: 127.0.0.1:5688 to DTLS server: localhost:5685
+dtls2udp    | Forwarding DTLS message from: 127.0.0.1:44196 to UDP endpoint: 127.0.0.1:5683
+dtls2udp    | Forwarding UDP response over DTLS from: 127.0.0.1:5683 to DTLS endpoint: 127.0.0.1:5687
+udp2dtls    | Forwarding DTLS message from: 127.0.0.1:57844 to UDP client: 127.0.0.1:5688
+```
