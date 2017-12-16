@@ -85,14 +85,14 @@ $ node examples/client/udp_client.js
 ### Check the result on the docker-compose output
 
 ```
-udp2dtls    | UDP Server listening on port: 5684
-udp2dtls    | DTLS Server listening on port: 5687
 dtls2udp    | DTLS Server listening on port: 5685
 dtls2udp    | UDP Server listening on port:  5686
-udp2dtls    | Got a DTLS message from: 127.0.0.1:57844 to UDP client: localhost:5685
-dtls2udp    | Got a DTLS Connection from: 127.0.0.1:44196
+udp2dtls    | UDP Server listening on port: 5684
+udp2dtls    | DTLS Server listening on port: 5687
+dtls2udp    | Got a DTLS Connection from: 127.0.0.1:37471
+udp2dtls    | Got a DTLS Connection from: 127.0.0.1:39233
 udp2dtls    | Forwarding UDP message from: 127.0.0.1:5688 to DTLS server: localhost:5685
-dtls2udp    | Forwarding DTLS message from: 127.0.0.1:44196 to UDP endpoint: 127.0.0.1:5683
-dtls2udp    | Forwarding UDP response over DTLS from: 127.0.0.1:5683 to DTLS endpoint: 127.0.0.1:5687
-udp2dtls    | Forwarding DTLS message from: 127.0.0.1:57844 to UDP client: 127.0.0.1:5688
+dtls2udp    | Forwarding DTLS message from: 127.0.0.1:37471 to UDP endpoint: 127.0.0.1:5683
+dtls2udp    | Forwarding UDP response over DTLS from: 127.0.0.1:5683 to DTLS endpoint: localhost:5687
+udp2dtls    | Forwarding DTLS message from: 127.0.0.1:39233 to UDP client: 127.0.0.1:5688
 ```
