@@ -1,7 +1,12 @@
-endpoint = process.argv[2]
-if (typeof(endpoint) == "undefined"){
-  console.log("You need to specify the DTLS Server endpoint\nusage:\n  node udp2dtls.js <DTLS_SERVER>")
-  process.exit()
+require('dotenv').config()
+var endpoint = process.env.DTLS_REMOTE
+if (typeof(endpoint) != "undefined"){}
+else {
+  endpoint = process.argv[2]
+  if (typeof(endpoint) == "undefined"){
+    console.log("You need to specify the DTLS Server endpoint\nusage:\n  node udp2dtls.js <DTLS_SERVER>")
+    process.exit()
+  }
 }
 endpointPort = 5685
 
