@@ -6,7 +6,12 @@ dtls2udp:
   net: host
   #For real scenarios input the UDP2DTLS Server IP Address
   environment:
-    - DTLS_REMOTE=localhost
+    - DTLS_ENDPOINT=localhost
+    - DTLS_ENDPOINT_PORT=5686
+    - UDP_ENDPOINT=localhost
+    - UDP_ENDPOINT_PORT=5683
+    - DTLS_LISTEN_PORT=5684
+    - UDP_LISTEN_PORT=5685
   volumes:
     - ./cert.crt:/node-dtls-tunnel/cert.crt
     - ./cert.key:/node-dtls-tunnel/cert.key
@@ -25,6 +30,9 @@ udp2dtls:
   net: host
   #For real scenarios input the DTLS2UDP Server IP Address
   environment:
-    - DTLS_REMOTE=localhost
+    - DTLS_ENDPOINT=localhost
+    - DTLS_ENDPOINT_PORT=5684
+    - DTLS_LISTEN_PORT=5686
+    - UDP_LISTEN_PORT=5687
   container_name: udp2dtls
 

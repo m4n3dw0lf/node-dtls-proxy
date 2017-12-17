@@ -1,4 +1,4 @@
-echo "DTLS_SERVER=$DTLS_SERVER" > .env
-nodejs bin/dtls2udp.js
+env > .env
+nodejs bin/dtls2udp
 
 

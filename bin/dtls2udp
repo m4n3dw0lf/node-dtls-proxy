@@ -26,7 +26,7 @@ if (typeof(udp_listen_port) == "undefined" || typeof(dtls_listen_port) == "undef
     process.exit()
 }
 
-console.log("[+] Starting UDP2DTLS Proxy")
+console.log("[+] Starting DTLS2UDP Proxy")
 
 const index = require('../')
     , dtls = index.createDTLSServer("cert.crt","cert.key",dtls_listen_port,"udp4")
