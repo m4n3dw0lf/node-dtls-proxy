@@ -10,8 +10,6 @@ else {
 }
 endpointPort = 5685
 
-c = 0
-
 udp_endpoint = "localhost"
 udp_endpointPort = 5688
 

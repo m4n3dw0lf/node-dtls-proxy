@@ -2,6 +2,8 @@
 
 Node.js DTLS Tunnel, library to connect plain-text UDP clients with plain-text UDP servers over an encrypted UDP tunnel..
 
+![](https://img.shields.io/badge/version-beta-green.svg)
+
 ## Requirements
 
 - nodejs version 4 or higher
