@@ -42,7 +42,7 @@ $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert
 
 - On a terminal
 ```
-$ node bin/dtls2udp.js <Udp2Dtls Server>
+$ node bin/dtls2udp 5684 5685 <UDP2DTLS SERVER IP> 5686 localhost 5683
 ```
 
 - On another terminal
@@ -54,7 +54,7 @@ $ node examples/server/udp_server.js
 
 - On a terminal
 ```
-$ node bin/udp2dtls.js <Dtls2Udp Server>
+$ node bin/udp2dtls 5686 5687 <DTLS2UDP SERVER IP> 5684
 ```
 
 - On another terminal
