@@ -95,4 +95,14 @@ $ node examples/client/udp_client.js
 ### Check the result on the docker-compose output
 
 ```
+udp2dtls    | [+] Starting UDP2DTLS Proxy
+dtls2udp    | [+] Starting DTLS2UDP Proxy
+udp2dtls    | UDP Server listening on port: 5687
+dtls2udp    | DTLS Server listening on port: 5684
+dtls2udp    | UDP Server listening on port:  5685
+dtls2udp    | Got a DTLS Connection from: 127.0.0.1:55209
+udp2dtls    | Encrypting UDP message from: 127.0.0.1:41585 and forwarding to DTLS2UDP endpoint
+dtls2udp    | Decrypting DTLS message from: 127.0.0.1:55209 and forwarding to UDP endpoint
+dtls2udp    | Encrypting UDP response from: 127.0.0.1:5683 and forwarding to  UDP2DTLS endpoint
+udp2dtls    | Decrypting DTLS message and forwarding to UDP client: 127.0.0.1:41585
 ```
