@@ -46,7 +46,7 @@ $ node bin/dtls2udp.js <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT> <UDP_ENDPOINT_IP> <U
 
 e.g:
 
-$ node bin/dtls2udp 5684 5685 localhost 5683
+$ node bin/dtls2udp.js 5684 5685 localhost 5683
 ```
 
 - On another terminal
@@ -58,11 +58,11 @@ $ node examples/server/udp_server.js
 
 - On a terminal
 ```
-$ node bin/udp2dtls <UDP_LISTEN_PORT> <DTLS2UDP SERVER IP> <DTLS2UDP SERVER PORT>
+$ node bin/udp2dtls.js <UDP_LISTEN_PORT> <DTLS2UDP SERVER IP> <DTLS2UDP SERVER PORT>
 
 e.g:
 
-$ node bin/udp2dtls.js 5686 5687 localhost 5684
+$ node bin/udp2dtls.js 5687 localhost 5684
 ```
 
 - On another terminal

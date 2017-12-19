@@ -1,5 +1,5 @@
 function help(){
-  console.log('\nnode-dtls-proxy\n\nusage:\n  $ node dtls2udp.js <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT>  <UDP_ENDPOINT> <UDP_ENDPOINT_PORT> \n\nexample:\n  $ node dtls2udp.js 5684 5685 localhost 5683\n')
+  console.log('\nnode-dtls-proxy\n\nusage:\n  $ node dtls2udp.js <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT>  <UDP_ENDPOINT> <UDP_ENDPOINT_PORT> \n\nexample:\n  $ node bin/dtls2udp.js 5684 5685 localhost 5683\n')
 }
 
 require('dotenv').config()
@@ -45,7 +45,7 @@ dtls.on( 'secureConnection', function( socket ) {
   console.log("Got a DTLS Connection from:",[socket.rinfo.address,socket.rinfo.port].join(":"))
   socket.on( 'message', function( message ) {
     dtls_socket = socket
-    console.log("Decrypting DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "and forwarding to UDP2DTLS endpoint");
+    console.log("Decrypting DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "and forwarding to UDP endpoint");
     udp.send(message, 0, message.length, endpointPort, endpoint)
   });
 });
