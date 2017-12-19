@@ -45,7 +45,7 @@ dtls.on( 'secureConnection', function( socket ) {
   console.log("Got a DTLS Connection from:",[socket.rinfo.address,socket.rinfo.port].join(":"))
   socket.on( 'message', function( message ) {
     dtls_socket = socket
-    console.log("Decrypting DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "and forwarding to UDP2DTLS endpoint";
+    console.log("Decrypting DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "and forwarding to UDP2DTLS endpoint");
     udp.send(message, 0, message.length, endpointPort, endpoint)
   });
 });
