@@ -36,7 +36,7 @@ console.log("UDP Server listening on port: ", udp_listen_port)
 
 
 udp.on('message', function (msg, rinfo) {
-  console.log("Forwarding UDP response from:",[rinfo.address,rinfo.port].join(":"), "over DTLS");
+  console.log("Encrypting UDP response from:",[rinfo.address,rinfo.port].join(":"), "and forwarding to  UDP2DTLS endpoint");
   dtls_socket.send(msg);
 });
 
@@ -45,7 +45,7 @@ dtls.on( 'secureConnection', function( socket ) {
   console.log("Got a DTLS Connection from:",[socket.rinfo.address,socket.rinfo.port].join(":"))
   socket.on( 'message', function( message ) {
     dtls_socket = socket
-    console.log("Forwarding DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "to UDP2DTLS endpoint:", [endpoint,endpointPort].join(":"));
+    console.log("Decrypting DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "and forwarding to UDP2DTLS endpoint";
     udp.send(message, 0, message.length, endpointPort, endpoint)
   });
 });

@@ -33,12 +33,12 @@ var client = dtls.connect( dtls_endpointPort, dtls_endpoint, 'udp4')
 udp.on('message', function (message, rinfo) {
   udp_endpoint = rinfo.address
   udp_endpointPort = rinfo.port
-  console.log("Forwarding UDP message from:", [rinfo.address,rinfo.port].join(":"), "to DTLS server:", [udp_endpoint, udp_endpointPort].join(":"));
+  console.log("Encrypting UDP message from:", [rinfo.address,rinfo.port].join(":"), "and forwarding to DTLS2UDP endpoint");
   client.send(message)
 });
 
 
 client.on( 'message', function( message ){
-    console.log("Forwarding DTLS message to UDP client:", [udp_endpoint,udp_endpointPort].join(":"));
+    console.log("Decrypting DTLS message and forwarding to UDP client:", [udp_endpoint,udp_endpointPort].join(":"));
     udp.send(message, 0, message.length, udp_endpointPort, udp_endpoint);
 });
