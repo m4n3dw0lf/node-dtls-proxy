@@ -8,7 +8,7 @@
     "url": "https://github.com/m4n3dw0lf/node-dtls-proxy"
   },
   "author": "Angelo Moura <m4n3dw0lf@gmail.com>",
-  "license": "GPLv2",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
     "node-dtls": "git://github.com/Rantanen/node-dtls"
