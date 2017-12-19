@@ -42,7 +42,11 @@ $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert
 
 - On a terminal
 ```
-$ node bin/dtls2udp 5684 5685 <UDP2DTLS SERVER IP> 5686 localhost 5683
+$ node bin/dtls2udp.js <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT> <UDP_ENDPOINT_IP> <UDP_ENDPOINT_PORT> 
+
+e.g:
+
+$ node bin/dtls2udp 5684 5685 localhost 5683
 ```
 
 - On another terminal
@@ -54,7 +58,11 @@ $ node examples/server/udp_server.js
 
 - On a terminal
 ```
-$ node bin/udp2dtls 5686 5687 <DTLS2UDP SERVER IP> 5684
+$ node bin/udp2dtls <UDP_LISTEN_PORT> <DTLS2UDP SERVER IP> <DTLS2UDP SERVER PORT>
+
+e.g:
+
+$ node bin/udp2dtls.js 5686 5687 localhost 5684
 ```
 
 - On another terminal
@@ -87,16 +95,4 @@ $ node examples/client/udp_client.js
 ### Check the result on the docker-compose output
 
 ```
-udp2dtls    | [+] Starting UDP2DTLS Proxy
-dtls2udp    | [+] Starting DTLS2UDP Proxy
-udp2dtls    | UDP Server listening on port: 5687
-udp2dtls    | DTLS Server listening on port: 5686
-dtls2udp    | DTLS Server listening on port: 5684
-dtls2udp    | UDP Server listening on port:  5685
-udp2dtls    | Got a DTLS Connection from: 127.0.0.1:59935
-dtls2udp    | Got a DTLS Connection from: 127.0.0.1:58238
-udp2dtls    | Forwarding UDP message from: 127.0.0.1:54814 to DTLS server: 127.0.0.1:54814
-dtls2udp    | Forwarding DTLS message from: 127.0.0.1:58238 to UDP endpoint: localhost:5683
-dtls2udp    | Forwarding UDP response over DTLS from: 127.0.0.1:5683 to DTLS endpoint: localhost:5686
-udp2dtls    | Forwarding DTLS message from: 127.0.0.1:59935 to UDP client: 127.0.0.1:54814
 ```

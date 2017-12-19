@@ -1,13 +1,10 @@
 dtls2udp:
   build: docker-dtls2udp
   ports:
-    - 5685:5685/udp
-    - 5686:5686/udp
+    - 5684:5684/udp
   net: host
   #For real scenarios input the UDP2DTLS Server IP Address
   environment:
-    - DTLS_ENDPOINT=localhost
-    - DTLS_ENDPOINT_PORT=5686
     - UDP_ENDPOINT=localhost
     - UDP_ENDPOINT_PORT=5683
     - DTLS_LISTEN_PORT=5684
@@ -21,9 +18,6 @@ dtls2udp:
 
 udp2dtls:
   build: docker-udp2dtls
-  ports:
-    - 5684:5684/udp
-    - 5687:5687/udp
   volumes:
     - ./cert.crt:/node-dtls-tunnel/cert.crt
     - ./cert.key:/node-dtls-tunnel/cert.key
@@ -32,7 +26,6 @@ udp2dtls:
   environment:
     - DTLS_ENDPOINT=localhost
     - DTLS_ENDPOINT_PORT=5684
-    - DTLS_LISTEN_PORT=5686
     - UDP_LISTEN_PORT=5687
   container_name: udp2dtls
 
