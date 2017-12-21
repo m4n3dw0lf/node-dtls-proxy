@@ -1,7 +1,5 @@
-#!/usr/bin/env node
-
 function help(){
-  console.log('\nnode-dtls-proxy\n\nusage:\n  $ dtls2udp.js <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT>  <UDP_ENDPOINT> <UDP_ENDPOINT_PORT> \n\nexample:\n  $ node bin/dtls2udp.js 5684 5685 localhost 5683\n')
+  console.log('\nnode-dtls-proxy\n\nusage:\n  $ node dtls2udp.js <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT>  <UDP_ENDPOINT> <UDP_ENDPOINT_PORT> \n\nexample:\n  $ node bin/dtls2udp.js 5684 5685 localhost 5683\n')
 }
 
 require('dotenv').config()
@@ -26,7 +24,7 @@ if (typeof(udp_listen_port) == "undefined" || typeof(dtls_listen_port) == "undef
 
 console.log("[+] Starting DTLS2UDP Proxy")
 
-const index = require('node-dtls-proxy')
+const index = require('../')
     , dtls = index.createDTLSServer("cert.crt","cert.key",dtls_listen_port,"udp4")
     , dgram = require('dgram')
 

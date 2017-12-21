@@ -12,5 +12,12 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "node-dtls": "git://github.com/Rantanen/node-dtls"
+  },
+  "bin": {
+    "dtls2udp" : "./bin/dtls2udp.js"
+  },
+  "bin": {
+    "udp2dtls" : "./bin/udp2dtls.js"
   }
+
 }
