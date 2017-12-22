@@ -6,6 +6,8 @@ WORKDIR node-dtls-tunnel
 
 RUN npm install
 
+RUN npm install -g
+
 COPY udp2dtls.sh .
 
 CMD ["/bin/bash","udp2dtls.sh"]

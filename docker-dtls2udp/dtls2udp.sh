@@ -1,4 +1,4 @@
 env > .env
-nodejs bin/dtls2udp
+dtls2udp
 
 
