@@ -14,10 +14,7 @@
     "node-dtls": "git://github.com/Rantanen/node-dtls"
   },
   "bin": {
-    "dtls2udp" : "./bin/dtls2udp.js"
-  },
-  "bin": {
+    "dtls2udp" : "./bin/dtls2udp.js",
     "udp2dtls" : "./bin/udp2dtls.js"
   }
-
 }
