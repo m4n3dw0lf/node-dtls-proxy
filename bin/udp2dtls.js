@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 function help(){
-  console.log('\nnode-dtls-proxy\n\nusage:\n  $ udp2dtls.js <UDP_LISTEN_PORT> <DTLS_ENDPOINT> <DTLS_ENDPOINT_PORT> \n\nexample:\n  $ node bin/udp2dtls.js 5687 localhost 5684\n')
+  console.log('\nnode-dtls-proxy\n\nusage:\n  $ udp2dtls <UDP_LISTEN_PORT> <DTLS_ENDPOINT> <DTLS_ENDPOINT_PORT> \n\nexample:\n  $ udp2dtls 5687 localhost 5684\n')
 }
 
 require('dotenv').config()

@@ -1,6 +1,6 @@
 {
   "name": "node-dtls-proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node UDP-2-DTLS Proxy",
   "main": "index.js",
   "repository": {
