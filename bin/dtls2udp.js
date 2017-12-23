@@ -9,6 +9,8 @@ var endpoint = process.env.UDP_ENDPOINT
 var endpointPort = process.env.UDP_ENDPOINT_PORT
 var dtls_listen_port = process.env.DTLS_LISTEN_PORT
 var udp_listen_port = process.env.UDP_LISTEN_PORT
+var cert = process.env.DTLS_CERT
+var key = process.env.DTLS_KEY
 
 if (typeof(udp_listen_port) != "undefined" || typeof(dtls_listen_port) != "undefined" || typeof(endpoint) != "undefined" || typeof(endpointPort) != "undefined")
 {}
@@ -19,6 +21,16 @@ else {
   endpointPort = process.argv[5]
 }
 
+
+if (typeof(cert) == "undefined") {
+  cert = "cert.crt"
+}
+
+if (typeof(key) == "undefined") {
+  key = "cert.key"
+}
+
+
 if (typeof(udp_listen_port) == "undefined" || typeof(dtls_listen_port) == "undefined" || typeof(endpoint) == "undefined" || typeof(endpointPort) == "undefined"){
     help()
     process.exit()
@@ -26,9 +38,20 @@ if (typeof(udp_listen_port) == "undefined" || typeof(dtls_listen_port) == "undef
 
 console.log("[+] Starting DTLS2UDP Proxy")
 
-const index = require('node-dtls-proxy')
-    , dtls = index.createDTLSServer("cert.crt","cert.key",dtls_listen_port,"udp4")
-    , dgram = require('dgram')
+const index = require('node-dtls-proxy');
+const dgram = require('dgram');
+try {
+const dtls = index.createDTLSServer(cert,key,dtls_listen_port,"udp4")
+}
+catch (err) {
+  if (err.code == "ENOENT") {
+    console.log("Certificate and Key not found, generate new ones with the following command:\n  $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt -subj '/CN=node-dtls-tunnel/O=m4n3dw0lf/C=BR'");
+    process.exit(1)
+  }
+  else {
+     throw err;
+  }
+}
 
 var dtls_socket;
 
