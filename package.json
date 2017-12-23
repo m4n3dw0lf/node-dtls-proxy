@@ -1,7 +1,7 @@
 {
   "name": "node-dtls-proxy",
-  "version": "0.0.3",
-  "description": "A node UDP-2-DTLS Proxy",
+  "version": "0.0.4",
+  "description": "Node.js DTLS Proxy, library and tools to connect plain-text UDP clients with plain-text UDP servers over an encrypted tunnel.. ",
   "main": "index.js",
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 # node-dtls-proxy
 
-Node.js DTLS Proxy, library to connect plain-text UDP clients with plain-text UDP servers over an encrypted UDP tunnel..
+Node.js DTLS Proxy, library and tools to connect plain-text UDP clients with plain-text UDP servers over an encrypted tunnel..
 
-![](https://img.shields.io/badge/version-v0.0.3-yellow.svg)
+![](https://img.shields.io/badge/version-v0.0.4-yellow.svg)
 
 ## Requirements
 
@@ -27,6 +27,13 @@ sudo apt-get install nodejs
 
 ## Package Installation
 
+#### From npm
+```
+$ npm install -g node-dtls-proxy
+```
+
+#### From Source
+
 ```
 $ git clone https://github.com/m4n3dw0lf/node-dtls-tunnel
 $ cd node-dtls-tunnel
@@ -34,7 +41,7 @@ $ sudo npm install -g
 $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt -subj '/CN=node-dtls-tunnel/O=m4n3dw0lf/C=BR'
 ```
 
-## PoC
+## Example
 
 - Create 2 VMs, one for the Server and one for the Client and install the package.
 
@@ -42,7 +49,7 @@ $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert
 
 - On a terminal
 ```
-$ dtls2udp <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT> <UDP_ENDPOINT_IP> <UDP_ENDPOINT_PORT> 
+$ dtls2udp <DTLS_LISTEN_PORT> <UDP_LISTEN_PORT> <UDP_ENDPOINT_IP> <UDP_ENDPOINT_PORT>
 
 e.g:
 
@@ -70,7 +77,7 @@ $ udp2dtls 5687 localhost 5684
 $ node examples/client/udp_client.js
 ```
 
-## Docker-Compose PoC
+## Docker-Compose Example
 
 ### run `docker-compose up`
 
