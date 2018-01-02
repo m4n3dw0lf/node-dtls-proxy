@@ -1,12 +1,6 @@
 from node:boron
 
-RUN git clone https://github.com/m4n3dw0lf/node-dtls-proxy
-
-WORKDIR node-dtls-proxy
-
-RUN npm install
-
-RUN npm install -g
+RUN npm install -g node-dtls-proxy
 
 COPY dtls2udp.sh .
 

@@ -50,6 +50,7 @@ catch (err) {
   }
   else {
      throw err;
+     process.exit(1)
   }
 }
 
@@ -66,13 +67,14 @@ udp.on('message', function (msg, rinfo) {
 });
 
 
-dtls.on( 'secureConnection', function( socket ) {
-  console.log("Got a DTLS Connection from:",[socket.rinfo.address,socket.rinfo.port].join(":"))
-  socket.on( 'message', function( message ) {
-    dtls_socket = socket
-    console.log("Decrypting DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "and forwarding to UDP endpoint");
-    udp.send(message, 0, message.length, endpointPort, endpoint)
+if (typeof(dtls) != "undefined") {
+  dtls.on( 'secureConnection', function( socket ) {
+    console.log("Got a DTLS Connection from:",[socket.rinfo.address,socket.rinfo.port].join(":"))
+    socket.on( 'message', function( message ) {
+      dtls_socket = socket
+      console.log("Decrypting DTLS message from:", [socket.rinfo.address,socket.rinfo.port].join(":"), "and forwarding to UDP endpoint");
+      udp.send(message, 0, message.length, endpointPort, endpoint)
+    });
   });
-});
-
+}
 
