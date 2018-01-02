@@ -18,7 +18,6 @@ else {
 }
 
 if ( typeof(udp_listen_port) == "undefined" || typeof(dtls_endpoint) == "undefined" || typeof(dtls_endpointPort) == "undefined" ){
-    console.log(process.argv[3])
     help()
     process.exit()
 }

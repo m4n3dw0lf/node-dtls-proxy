@@ -1,8 +1,8 @@
 from node:boron
 
-RUN git clone https://github.com/m4n3dw0lf/node-dtls-tunnel
+RUN git clone https://github.com/m4n3dw0lf/node-dtls-proxy
 
-WORKDIR node-dtls-tunnel
+WORKDIR node-dtls-proxy
 
 RUN npm install
 

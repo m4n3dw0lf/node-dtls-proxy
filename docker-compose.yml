@@ -9,9 +9,11 @@ dtls2udp:
     - UDP_ENDPOINT_PORT=5683
     - DTLS_LISTEN_PORT=5684
     - UDP_LISTEN_PORT=5685
+    - DTLS_CERT = /node-dtls-proxy/cert.crt
+    - DTLS_KEY = /node-dtls-proxy/cert.key
   volumes:
-    - ./cert.crt:/node-dtls-tunnel/cert.crt
-    - ./cert.key:/node-dtls-tunnel/cert.key
+    - ./cert.crt:/node-dtls-proxy/cert.crt
+    - ./cert.key:/node-dtls-proxy/cert.key
   container_name: dtls2udp
 
 ##On real scenarios split the udp2dtls and dtls2udp in 2 servers
@@ -19,8 +21,8 @@ dtls2udp:
 udp2dtls:
   build: docker-udp2dtls
   volumes:
-    - ./cert.crt:/node-dtls-tunnel/cert.crt
-    - ./cert.key:/node-dtls-tunnel/cert.key
+    - ./cert.crt:/node-dtls-proxy/cert.crt
+    - ./cert.key:/node-dtls-proxy/cert.key
   net: host
   #For real scenarios input the DTLS2UDP Server IP Address
   environment:
