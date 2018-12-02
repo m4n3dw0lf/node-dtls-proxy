@@ -2,7 +2,7 @@
 
 Node.js DTLS Proxy, library and tools to connect plain-text UDP clients with plain-text UDP servers over an encrypted tunnel..
 
-![](https://img.shields.io/badge/version-v0.0.5-yellow.svg)
+![](https://img.shields.io/badge/version-v0.0.6-yellow.svg)
 
 ## Requirements
 
